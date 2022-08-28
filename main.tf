@@ -3,20 +3,20 @@ provider "kubernetes" {
   config_context_cluster = "minikube"
 }
 
-resource "kubernetes_namespace" "minikube-namespace-1" {
+resource "kubernetes_namespace" "argocd" {
   metadata {
-    name = "my-first-terraform-namespace"
+    name = "argocd"
   }
 }
 
-provider "helm" {
-  kubernetes {
-    config_path = "~/.kube/config"
-    config_context_cluster = "minikube"
-  }
-}
+# provider "helm" {
+#   kubernetes {
+#     config_path = "~/.kube/config"
+#     config_context_cluster = "minikube"
+#   }
+# }
 
-resource "helm_release" "local" {
-  name = "buildachart"
-  chart = "./buildachart"
-}
+# resource "helm_release" "local" {
+#   name = "buildachart"
+#   chart = "./buildachart"
+# }
